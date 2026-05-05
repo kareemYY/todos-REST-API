@@ -7,6 +7,7 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -151,5 +152,11 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return UserDetails.super.isEnabled();
+    }
+
+    public void addAuthority(Authority authority) {
+        if (authorities == null){authorities = new ArrayList<>();}
+
+        this.authorities.add(authority);
     }
 }
